@@ -14,7 +14,6 @@ import java.awt.event.MouseListener;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.plaf.basic.BasicButtonUI;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 
@@ -31,6 +30,7 @@ public class LivrosVIEW extends javax.swing.JFrame implements ActionListener {
         initComponents();
         listarlivros();
         JButton [] btns = {btnHOME,btnLIVRO,btnCADASTRO,btnEMPRESTIMO, btnDEVOLUCAO};
+        this.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         for (JButton btn : btns){
             btn.setBackground(new Color (0,0,0));
             btn.setUI(new BasicButtonUI());
@@ -98,6 +98,12 @@ public class LivrosVIEW extends javax.swing.JFrame implements ActionListener {
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabelaLivros = new javax.swing.JTable();
+        jSeparator1 = new javax.swing.JSeparator();
+        btnEDITAR = new javax.swing.JButton();
+        btnATUALIZAR = new javax.swing.JButton();
+        btnEXCLUIR = new javax.swing.JButton();
+        txtID = new javax.swing.JTextField();
+        jComboBox1 = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -174,18 +180,18 @@ public class LivrosVIEW extends javax.swing.JFrame implements ActionListener {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnHOME, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1)
-                .addGap(27, 27, 27))
-            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnLIVRO, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnCADASTRO, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnEMPRESTIMO, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnDEVOLUCAO, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnHOME, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel1)
+                .addGap(27, 27, 27))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -213,48 +219,95 @@ public class LivrosVIEW extends javax.swing.JFrame implements ActionListener {
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        tabelaLivros.setBackground(new java.awt.Color(255, 255, 255));
         tabelaLivros.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         tabelaLivros.setForeground(new java.awt.Color(0, 0, 0));
         tabelaLivros.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "LIVRO", "EDITORA", "AUTOR", "CATEGORIA", "STATUS", "VALOR(R$)", "ANO ", "COD."
+                "ID", "LIVRO", "EDITORA", "AUTOR", "CATEGORIA", "STATUS", "R$", "ANO ", "COD."
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
+        tabelaLivros.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        tabelaLivros.setGridColor(new java.awt.Color(0, 0, 0));
+        tabelaLivros.setRowHeight(40);
+        tabelaLivros.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(tabelaLivros);
         if (tabelaLivros.getColumnModel().getColumnCount() > 0) {
             tabelaLivros.getColumnModel().getColumn(0).setResizable(false);
-            tabelaLivros.getColumnModel().getColumn(0).setPreferredWidth(150);
+            tabelaLivros.getColumnModel().getColumn(0).setPreferredWidth(3);
             tabelaLivros.getColumnModel().getColumn(1).setResizable(false);
-            tabelaLivros.getColumnModel().getColumn(1).setPreferredWidth(50);
+            tabelaLivros.getColumnModel().getColumn(1).setPreferredWidth(150);
             tabelaLivros.getColumnModel().getColumn(2).setResizable(false);
             tabelaLivros.getColumnModel().getColumn(2).setPreferredWidth(50);
             tabelaLivros.getColumnModel().getColumn(3).setResizable(false);
-            tabelaLivros.getColumnModel().getColumn(3).setPreferredWidth(80);
+            tabelaLivros.getColumnModel().getColumn(3).setPreferredWidth(50);
             tabelaLivros.getColumnModel().getColumn(4).setResizable(false);
-            tabelaLivros.getColumnModel().getColumn(4).setPreferredWidth(50);
+            tabelaLivros.getColumnModel().getColumn(4).setPreferredWidth(80);
             tabelaLivros.getColumnModel().getColumn(5).setResizable(false);
-            tabelaLivros.getColumnModel().getColumn(5).setPreferredWidth(20);
+            tabelaLivros.getColumnModel().getColumn(5).setPreferredWidth(50);
             tabelaLivros.getColumnModel().getColumn(6).setResizable(false);
             tabelaLivros.getColumnModel().getColumn(6).setPreferredWidth(20);
             tabelaLivros.getColumnModel().getColumn(7).setResizable(false);
-            tabelaLivros.getColumnModel().getColumn(7).setPreferredWidth(60);
+            tabelaLivros.getColumnModel().getColumn(7).setPreferredWidth(20);
+            tabelaLivros.getColumnModel().getColumn(8).setResizable(false);
+            tabelaLivros.getColumnModel().getColumn(8).setPreferredWidth(60);
         }
 
-        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 920, 570));
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 940, 500));
+        jPanel2.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 940, 10));
+
+        btnEDITAR.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        btnEDITAR.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image_icons/botao-editar (1).png"))); // NOI18N
+        btnEDITAR.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEDITARActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnEDITAR, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, 90, -1));
+
+        btnATUALIZAR.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        btnATUALIZAR.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image_icons/refrescar (1).png"))); // NOI18N
+        btnATUALIZAR.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnATUALIZARActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnATUALIZAR, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 30, 90, -1));
+
+        btnEXCLUIR.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        btnEXCLUIR.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image_icons/excluir (1).png"))); // NOI18N
+        btnEXCLUIR.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEXCLUIRActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnEXCLUIR, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 30, 90, -1));
+
+        txtID.setBackground(new java.awt.Color(255, 255, 255));
+        txtID.setForeground(new java.awt.Color(255, 255, 255));
+        txtID.setBorder(null);
+        txtID.setDisabledTextColor(new java.awt.Color(255, 255, 255));
+        txtID.setEnabled(false);
+        txtID.setOpaque(false);
+        txtID.setSelectedTextColor(new java.awt.Color(255, 255, 255));
+        jPanel2.add(txtID, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 90, 40, -1));
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Total Disponiveis", "Total Emprestados" }));
+        jPanel2.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 40, 250, 40));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 0, 940, 600));
 
@@ -280,6 +333,19 @@ public class LivrosVIEW extends javax.swing.JFrame implements ActionListener {
     private void btnDEVOLUCAOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDEVOLUCAOActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnDEVOLUCAOActionPerformed
+
+    private void btnATUALIZARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnATUALIZARActionPerformed
+        listarlivros();
+    }//GEN-LAST:event_btnATUALIZARActionPerformed
+
+    private void btnEDITARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEDITARActionPerformed
+        Editar();
+    }//GEN-LAST:event_btnEDITARActionPerformed
+
+    private void btnEXCLUIRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEXCLUIRActionPerformed
+        Excluir();
+        listarlivros();
+    }//GEN-LAST:event_btnEXCLUIRActionPerformed
 
     /**
      * @param args the command line arguments
@@ -317,16 +383,22 @@ public class LivrosVIEW extends javax.swing.JFrame implements ActionListener {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnATUALIZAR;
     private javax.swing.JButton btnCADASTRO;
     private javax.swing.JButton btnDEVOLUCAO;
+    private javax.swing.JButton btnEDITAR;
     private javax.swing.JButton btnEMPRESTIMO;
+    private javax.swing.JButton btnEXCLUIR;
     private javax.swing.JButton btnHOME;
     private javax.swing.JButton btnLIVRO;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tabelaLivros;
+    private javax.swing.JSeparator jSeparator1;
+    protected javax.swing.JTable tabelaLivros;
+    private javax.swing.JTextField txtID;
     // End of variables declaration//GEN-END:variables
 
     @Override
@@ -335,7 +407,7 @@ public class LivrosVIEW extends javax.swing.JFrame implements ActionListener {
         new HomeVIEW();
     }
     
-    private void listarlivros(){
+    public void listarlivros(){
         try {
             LivrosDAO objlivrosD = new LivrosDAO();
             
@@ -346,6 +418,7 @@ public class LivrosVIEW extends javax.swing.JFrame implements ActionListener {
             
             for(int num = 0; num < lista.size(); num++){
                 model.addRow(new Object[]{
+                    lista.get(num).getId_livros(),
                     lista.get(num).getNome_livro(),
                     lista.get(num).getEditora(),
                     lista.get(num).getAutor(),
@@ -360,6 +433,48 @@ public class LivrosVIEW extends javax.swing.JFrame implements ActionListener {
         } catch (Exception erro) {
             JOptionPane.showMessageDialog(null, "ListarLivros VIEW: " + erro);
         }
+    }
+    
+    
+    public void Editar(){
+        int setar = tabelaLivros.getSelectedRow();
+        
+        if(tabelaLivros.getSelectedRow() != -1){
+        EditarLivroVIEW objLivroVE = new EditarLivroVIEW();  
+        objLivroVE.setVisible(true);
+        
+        objLivroVE.txtID.setText(tabelaLivros.getModel().getValueAt(setar, 0).toString());
+        objLivroVE.txtNome.setText(tabelaLivros.getModel().getValueAt(setar, 1).toString());
+        objLivroVE.txtEditora.setText(tabelaLivros.getModel().getValueAt(setar, 2).toString());
+        objLivroVE.txtAutor.setText(tabelaLivros.getModel().getValueAt(setar, 3).toString());
+        objLivroVE.txtCategoria.setText(tabelaLivros.getModel().getValueAt(setar, 4).toString());
+        objLivroVE.txtValor.setText(tabelaLivros.getModel().getValueAt(setar,6).toString());
+        objLivroVE.txtAno.setText(tabelaLivros.getModel().getValueAt(setar, 7).toString());
+        objLivroVE.txtCodlivro.setText(tabelaLivros.getModel().getValueAt(setar, 8).toString());
+        
+        }
+        
+    }
+    
+    public void Excluir(){
+        int id_livro;
+        
+        int setar = tabelaLivros.getSelectedRow();
+        
+        if(tabelaLivros.getSelectedRow() != -1){
+            
+        txtID.setText(tabelaLivros.getModel().getValueAt(setar, 0).toString());
+        
+        id_livro = Integer.parseInt(txtID.getText());
+        
+        LivrosMODEL objlivrosM = new LivrosMODEL();
+        objlivrosM.setId_livros(id_livro);
+        
+        LivrosDAO objlivrosD = new LivrosDAO();
+        objlivrosD.ExcluirLivro(objlivrosM);
+        
+        
+       }
     }
     
 }

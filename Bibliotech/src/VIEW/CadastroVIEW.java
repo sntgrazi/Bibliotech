@@ -333,31 +333,8 @@ public class CadastroVIEW extends javax.swing.JFrame implements ActionListener {
     }//GEN-LAST:event_btnDEVOLUCAOActionPerformed
 
     private void btnCADASTROActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCADASTROActionPerformed
-        String nome_livro, editora, autor, categoria, valor, cod_livro, ano_lancamento;
-        
-        nome_livro = txtNome.getText();
-        editora = txtEditora.getText();
-        autor = txtAutor.getText();
-        categoria = txtCategoria.getText();
-        valor = txtValor.getText();
-        ano_lancamento = txtAno.getText();
-        cod_livro = txtCod.getText();
-        
-        int valorConvert = Integer.parseInt(valor);
-        int anoConvert = Integer.parseInt(ano_lancamento);
-        int codConvert = Integer.parseInt(cod_livro);
-        
-        LivrosMODEL objlivrosM = new LivrosMODEL();
-        objlivrosM.setNome_livro(nome_livro);
-        objlivrosM.setEditora(editora);
-        objlivrosM.setAutor(autor);
-        objlivrosM.setCategoria(categoria);
-        objlivrosM.setValor_livro(valorConvert);
-        objlivrosM.setAno_lancamento(anoConvert);
-        objlivrosM.setCod_livro(codConvert);
-        
-        LivrosDAO objlivrosD = new LivrosDAO();
-        objlivrosD.cadastrarLivro(objlivrosM);
+        CadastrarL();
+        LimparCampos();
     }//GEN-LAST:event_btnCADASTROActionPerformed
 
     /**
@@ -433,5 +410,43 @@ public class CadastroVIEW extends javax.swing.JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         this.setVisible(false);
         new HomeVIEW();  
+    }
+    
+    public void CadastrarL(){
+        String nome_livro, editora, autor, categoria, valor, cod_livro, ano_lancamento;
+        
+        nome_livro = txtNome.getText();
+        editora = txtEditora.getText();
+        autor = txtAutor.getText();
+        categoria = txtCategoria.getText();
+        valor = txtValor.getText();
+        ano_lancamento = txtAno.getText();
+        cod_livro = txtCod.getText();
+        
+        int valorConvert = Integer.parseInt(valor);
+        int anoConvert = Integer.parseInt(ano_lancamento);
+        int codConvert = Integer.parseInt(cod_livro);
+        
+        LivrosMODEL objlivrosM = new LivrosMODEL();
+        objlivrosM.setNome_livro(nome_livro);
+        objlivrosM.setEditora(editora);
+        objlivrosM.setAutor(autor);
+        objlivrosM.setCategoria(categoria);
+        objlivrosM.setValor_livro(valorConvert);
+        objlivrosM.setAno_lancamento(anoConvert);
+        objlivrosM.setCod_livro(codConvert);
+        
+        LivrosDAO objlivrosD = new LivrosDAO();
+        objlivrosD.cadastrarLivro(objlivrosM);
+    }
+    
+    public void LimparCampos(){
+        txtNome.setText("");
+        txtEditora.setText("");
+        txtAutor.setText("");
+        txtCategoria.setText("");
+        txtValor.setText("");
+        txtCod.setText("");
+        txtAno.setText("");
     }
 }

@@ -11,6 +11,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.plaf.basic.BasicButtonUI;
 
@@ -23,6 +27,8 @@ public class DevolucaoVIEW extends javax.swing.JFrame implements ActionListener 
     /**
      * Creates new form DevolucaoVIEW
      */
+   
+    
     public DevolucaoVIEW() {
         initComponents();
         JButton [] btns = {btnHOME,btnLIVRO,btnCADASTRO,btnEMPRESTIMO, btnDEVOLUCAO};
@@ -94,9 +100,9 @@ public class DevolucaoVIEW extends javax.swing.JFrame implements ActionListener 
         txtNomeCod = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jSeparator15 = new javax.swing.JSeparator();
+        lista = new javax.swing.JSeparator();
         btnPesquisar = new javax.swing.JButton();
-        txtCod = new javax.swing.JTextField();
+        txtNome = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -210,12 +216,16 @@ public class DevolucaoVIEW extends javax.swing.JFrame implements ActionListener 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 210, 600));
 
         txtNomeCod.setBackground(new java.awt.Color(255, 255, 255));
+        txtNomeCod.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel11.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
         jLabel11.setText("Devolver livro");
+        txtNomeCod.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(377, 6, 200, 50));
 
         jLabel6.setFont(new java.awt.Font("Century Gothic", 1, 16)); // NOI18N
         jLabel6.setText("Nome ou Cod. Livro");
+        txtNomeCod.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(201, 95, -1, 30));
+        txtNomeCod.add(lista, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 170, 491, 20));
 
         btnPesquisar.setBackground(new java.awt.Color(255, 255, 255));
         btnPesquisar.setForeground(new java.awt.Color(255, 255, 255));
@@ -225,53 +235,16 @@ public class DevolucaoVIEW extends javax.swing.JFrame implements ActionListener 
                 btnPesquisarActionPerformed(evt);
             }
         });
+        txtNomeCod.add(btnPesquisar, new org.netbeans.lib.awtextra.AbsoluteConstraints(704, 125, 45, -1));
 
-        txtCod.setBackground(new java.awt.Color(255, 255, 255));
-        txtCod.setBorder(null);
-
-        javax.swing.GroupLayout txtNomeCodLayout = new javax.swing.GroupLayout(txtNomeCod);
-        txtNomeCod.setLayout(txtNomeCodLayout);
-        txtNomeCodLayout.setHorizontalGroup(
-            txtNomeCodLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(txtNomeCodLayout.createSequentialGroup()
-                .addContainerGap(201, Short.MAX_VALUE)
-                .addGroup(txtNomeCodLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(txtNomeCodLayout.createSequentialGroup()
-                        .addGroup(txtNomeCodLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jSeparator15, javax.swing.GroupLayout.DEFAULT_SIZE, 491, Short.MAX_VALUE)
-                            .addComponent(txtCod))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(txtNomeCodLayout.createSequentialGroup()
-                        .addGroup(txtNomeCodLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(txtNomeCodLayout.createSequentialGroup()
-                                .addGap(176, 176, 176)
-                                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel6))
-                        .addContainerGap(363, Short.MAX_VALUE))))
-        );
-        txtNomeCodLayout.setVerticalGroup(
-            txtNomeCodLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(txtNomeCodLayout.createSequentialGroup()
-                .addGroup(txtNomeCodLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(txtNomeCodLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE))
-                    .addGroup(txtNomeCodLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(txtNomeCodLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnPesquisar)
-                    .addGroup(txtNomeCodLayout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(txtCod, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jSeparator15, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(406, 406, 406))
-        );
+        txtNome.setBackground(new java.awt.Color(255, 255, 255));
+        txtNome.setBorder(null);
+        txtNome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNomeActionPerformed(evt);
+            }
+        });
+        txtNomeCod.add(txtNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 130, 491, 30));
 
         getContentPane().add(txtNomeCod, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 0, 940, 600));
 
@@ -299,18 +272,12 @@ public class DevolucaoVIEW extends javax.swing.JFrame implements ActionListener 
     }//GEN-LAST:event_btnDEVOLUCAOActionPerformed
 
     private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
-        String cod_livro;
-
-        cod_livro = txtCod.getText();
         
-        int codConvert = Integer.parseInt(cod_livro);
-        
-        DevolucaoMODEL objdevolucaoM = new DevolucaoMODEL();
-        objdevolucaoM.setCod_livro(codConvert);
-        
-        DevolucaoDAO objdevolucaoD = new DevolucaoDAO();
-        objdevolucaoD.pesquisarLivro(objdevolucaoM);
     }//GEN-LAST:event_btnPesquisarActionPerformed
+
+    private void txtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeActionPerformed
+
+    }//GEN-LAST:event_txtNomeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -358,8 +325,8 @@ public class DevolucaoVIEW extends javax.swing.JFrame implements ActionListener 
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JSeparator jSeparator15;
-    private javax.swing.JTextField txtCod;
+    private javax.swing.JSeparator lista;
+    protected javax.swing.JTextField txtNome;
     private javax.swing.JPanel txtNomeCod;
     // End of variables declaration//GEN-END:variables
 
@@ -368,5 +335,4 @@ public class DevolucaoVIEW extends javax.swing.JFrame implements ActionListener 
        this.setVisible(false);
        new HomeVIEW();
     }
-    
 }

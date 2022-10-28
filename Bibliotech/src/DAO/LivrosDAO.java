@@ -74,4 +74,46 @@ public class LivrosDAO {
         
         return lista;
     }
+
+    public void EditarLivro(LivrosMODEL objlivrosM) {
+        String sql = "update cad_livros set nome_livro = ?, editora = ?, autor = ?,"
+                + " categoria = ?, valor_livro = ?, ano_lancamento = ?, cod_livro = ? where id = ?";
+        
+         conn =  new ConexaoDAO().conectaBD();
+       
+        try {
+            preparaConexao = conn.prepareStatement(sql);
+            preparaConexao.setString(1, objlivrosM.getNome_livro());
+            preparaConexao.setString(2, objlivrosM.getEditora());
+            preparaConexao.setString(3, objlivrosM.getAutor());
+            preparaConexao.setString(4, objlivrosM.getCategoria());
+            preparaConexao.setInt(5, objlivrosM.getValor_livro());
+            preparaConexao.setInt(6, objlivrosM.getAno_lancamento());
+            preparaConexao.setInt(7, objlivrosM.getCod_livro());
+            preparaConexao.setInt(8, objlivrosM.getId_livros());
+            
+            preparaConexao.execute();
+            preparaConexao.close();
+            
+        } catch (SQLException erro) {
+            JOptionPane.showMessageDialog(null,"LivosDAO EditarLivro: " + erro);
+        }
+    }
+    
+    public void ExcluirLivro(LivrosMODEL objlivrosM){
+        String sql = "delete from cad_livros where id = ?";
+        
+        conn =  new ConexaoDAO().conectaBD();
+       
+        try {
+            preparaConexao = conn.prepareStatement(sql);
+            preparaConexao.setInt(1, objlivrosM.getId_livros());
+            
+            preparaConexao.execute();
+            preparaConexao.close();
+            
+        } catch (SQLException erro) {
+            JOptionPane.showMessageDialog(null,"LivosDAO ExcluirLivro: " + erro);
+        }
+    }
 }

@@ -109,7 +109,7 @@ public class EmprestimoVIEW extends javax.swing.JFrame implements ActionListener
         jSeparator15 = new javax.swing.JSeparator();
         btnConfirmar = new javax.swing.JButton();
         jSeparator16 = new javax.swing.JSeparator();
-        txtNomeCliente = new javax.swing.JTextField();
+        txtCodLivro = new javax.swing.JTextField();
         txtTel = new javax.swing.JTextField();
         txtRua = new javax.swing.JTextField();
         txtNum = new javax.swing.JTextField();
@@ -119,6 +119,9 @@ public class EmprestimoVIEW extends javax.swing.JFrame implements ActionListener
         txtNomeLivro = new javax.swing.JTextField();
         txtCpf = new javax.swing.JTextField();
         txtDataAluguel = new javax.swing.JTextField();
+        txtNomeCliente = new javax.swing.JTextField();
+        jSeparator17 = new javax.swing.JSeparator();
+        jLabel11 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -226,10 +229,10 @@ public class EmprestimoVIEW extends javax.swing.JFrame implements ActionListener
                 .addComponent(btnDEVOLUCAO, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnLIVRO, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(204, Short.MAX_VALUE))
+                .addContainerGap(214, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 220, 590));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 220, 600));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -241,11 +244,11 @@ public class EmprestimoVIEW extends javax.swing.JFrame implements ActionListener
         jLabel5.setFont(new java.awt.Font("Century Gothic", 1, 16)); // NOI18N
         jLabel5.setText("Cpf");
         jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 160, -1, -1));
-        jPanel2.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 360, 270, 10));
+        jPanel2.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 340, 270, 10));
 
         jLabel6.setFont(new java.awt.Font("Century Gothic", 1, 16)); // NOI18N
-        jLabel6.setText("Nome do cliente");
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 80, -1, -1));
+        jLabel6.setText("Cod.Livro");
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 360, -1, -1));
         jPanel2.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 210, 270, 10));
 
         jLabel7.setFont(new java.awt.Font("Century Gothic", 1, 16)); // NOI18N
@@ -255,37 +258,37 @@ public class EmprestimoVIEW extends javax.swing.JFrame implements ActionListener
 
         jLabel8.setFont(new java.awt.Font("Century Gothic", 1, 16)); // NOI18N
         jLabel8.setText("N°");
-        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 230, -1, -1));
-        jPanel2.add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 280, 270, 10));
+        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 220, -1, -1));
+        jPanel2.add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 270, 270, 10));
 
         jLabel9.setFont(new java.awt.Font("Century Gothic", 1, 16)); // NOI18N
         jLabel9.setText("Rua");
-        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 230, -1, -1));
+        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 220, -1, -1));
 
         jLabel10.setFont(new java.awt.Font("Century Gothic", 1, 16)); // NOI18N
         jLabel10.setText("Valor (R$)");
-        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 300, -1, -1));
-        jPanel2.add(jSeparator11, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 280, 180, 10));
+        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 280, -1, -1));
+        jPanel2.add(jSeparator11, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 270, 180, 10));
 
         jLabel12.setFont(new java.awt.Font("Century Gothic", 1, 16)); // NOI18N
         jLabel12.setText("Nome do livro");
-        jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 300, -1, -1));
-        jPanel2.add(jSeparator12, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 140, 570, 10));
+        jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 280, -1, -1));
+        jPanel2.add(jSeparator12, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 410, 570, 10));
 
         jLabel13.setFont(new java.awt.Font("Century Gothic", 1, 16)); // NOI18N
         jLabel13.setText("Data da devolução");
-        jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 390, -1, -1));
-        jPanel2.add(jSeparator13, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 440, 270, 19));
+        jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 430, -1, -1));
+        jPanel2.add(jSeparator13, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 480, 270, 19));
 
         jLabel14.setFont(new java.awt.Font("Century Gothic", 1, 16)); // NOI18N
         jLabel14.setText("Data do empréstimo");
-        jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 390, -1, -1));
-        jPanel2.add(jSeparator14, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 440, 260, 10));
+        jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 430, -1, -1));
+        jPanel2.add(jSeparator14, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 480, 260, 10));
 
         jLabel15.setFont(new java.awt.Font("Century Gothic", 1, 16)); // NOI18N
         jLabel15.setText("Bairro");
-        jPanel2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 230, -1, -1));
-        jPanel2.add(jSeparator15, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 360, 260, 16));
+        jPanel2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 220, -1, -1));
+        jPanel2.add(jSeparator15, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 340, 260, 16));
 
         btnConfirmar.setBackground(new java.awt.Color(255, 255, 255));
         btnConfirmar.setFont(new java.awt.Font("Century Gothic", 1, 16)); // NOI18N
@@ -296,12 +299,12 @@ public class EmprestimoVIEW extends javax.swing.JFrame implements ActionListener
                 btnConfirmarActionPerformed(evt);
             }
         });
-        jPanel2.add(btnConfirmar, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 480, 190, 60));
-        jPanel2.add(jSeparator16, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 280, 50, 10));
+        jPanel2.add(btnConfirmar, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 520, 190, 60));
+        jPanel2.add(jSeparator16, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 270, 50, 10));
 
-        txtNomeCliente.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        txtNomeCliente.setBorder(null);
-        jPanel2.add(txtNomeCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 110, 570, 30));
+        txtCodLivro.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        txtCodLivro.setBorder(null);
+        jPanel2.add(txtCodLivro, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 380, 570, 30));
 
         txtTel.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         txtTel.setBorder(null);
@@ -310,7 +313,7 @@ public class EmprestimoVIEW extends javax.swing.JFrame implements ActionListener
                 txtTelActionPerformed(evt);
             }
         });
-        jPanel2.add(txtTel, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 180, 260, 28));
+        jPanel2.add(txtTel, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 180, 260, 30));
 
         txtRua.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         txtRua.setBorder(null);
@@ -319,7 +322,7 @@ public class EmprestimoVIEW extends javax.swing.JFrame implements ActionListener
                 txtRuaActionPerformed(evt);
             }
         });
-        jPanel2.add(txtRua, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 250, 270, 30));
+        jPanel2.add(txtRua, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 240, 270, 30));
 
         txtNum.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         txtNum.setBorder(null);
@@ -328,7 +331,7 @@ public class EmprestimoVIEW extends javax.swing.JFrame implements ActionListener
                 txtNumActionPerformed(evt);
             }
         });
-        jPanel2.add(txtNum, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 250, 50, 30));
+        jPanel2.add(txtNum, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 240, 50, 30));
 
         txtBairro.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         txtBairro.setBorder(null);
@@ -337,7 +340,7 @@ public class EmprestimoVIEW extends javax.swing.JFrame implements ActionListener
                 txtBairroActionPerformed(evt);
             }
         });
-        jPanel2.add(txtBairro, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 250, 180, 30));
+        jPanel2.add(txtBairro, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 240, 180, 30));
 
         txtValor.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         txtValor.setBorder(null);
@@ -346,7 +349,7 @@ public class EmprestimoVIEW extends javax.swing.JFrame implements ActionListener
                 txtValorActionPerformed(evt);
             }
         });
-        jPanel2.add(txtValor, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 330, 260, 31));
+        jPanel2.add(txtValor, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 310, 260, 31));
 
         txtDataDevolucao.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         txtDataDevolucao.setBorder(null);
@@ -355,7 +358,7 @@ public class EmprestimoVIEW extends javax.swing.JFrame implements ActionListener
                 txtDataDevolucaoActionPerformed(evt);
             }
         });
-        jPanel2.add(txtDataDevolucao, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 410, 260, 30));
+        jPanel2.add(txtDataDevolucao, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 450, 260, 30));
 
         txtNomeLivro.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         txtNomeLivro.setBorder(null);
@@ -364,7 +367,7 @@ public class EmprestimoVIEW extends javax.swing.JFrame implements ActionListener
                 txtNomeLivroActionPerformed(evt);
             }
         });
-        jPanel2.add(txtNomeLivro, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 330, 270, 30));
+        jPanel2.add(txtNomeLivro, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 310, 270, 30));
 
         txtCpf.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         txtCpf.setBorder(null);
@@ -382,7 +385,16 @@ public class EmprestimoVIEW extends javax.swing.JFrame implements ActionListener
                 txtDataAluguelActionPerformed(evt);
             }
         });
-        jPanel2.add(txtDataAluguel, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 410, 270, 33));
+        jPanel2.add(txtDataAluguel, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 450, 270, 33));
+
+        txtNomeCliente.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        txtNomeCliente.setBorder(null);
+        jPanel2.add(txtNomeCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 110, 570, 30));
+        jPanel2.add(jSeparator17, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 140, 570, 10));
+
+        jLabel11.setFont(new java.awt.Font("Century Gothic", 1, 16)); // NOI18N
+        jLabel11.setText("Nome do cliente");
+        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 80, -1, -1));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 0, 940, 600));
 
@@ -417,10 +429,6 @@ public class EmprestimoVIEW extends javax.swing.JFrame implements ActionListener
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCpfActionPerformed
 
-    private void txtNomeLivroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeLivroActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNomeLivroActionPerformed
-
     private void txtDataDevolucaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDataDevolucaoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtDataDevolucaoActionPerformed
@@ -446,43 +454,13 @@ public class EmprestimoVIEW extends javax.swing.JFrame implements ActionListener
     }//GEN-LAST:event_txtTelActionPerformed
 
     private void btnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarActionPerformed
-        String nome_cliente, cpf, telefone, end_rua, end_Ncasa, end_bairro,
-                nome_livro, valor_livro, data_emprestimo, data_devolucao, status_livro="Emprestado";
-        
-        nome_cliente = txtNomeCliente.getText();
-        cpf = txtCpf.getText();
-        telefone = txtTel.getText();
-        end_rua = txtRua.getText();
-        end_Ncasa = txtNum.getText();
-        end_bairro = txtBairro.getText();
-        nome_livro = txtNomeLivro.getText();
-        valor_livro = txtValor.getText();
-        data_emprestimo = txtDataAluguel.getText();
-        data_devolucao = txtDataDevolucao.getText();
-        
-        int valorConvert = Integer.parseInt(valor_livro);
-        int cpfConvert = Integer.parseInt(cpf);
-        int telConvert = Integer.parseInt(telefone);
-        int NcasaConvert = Integer.parseInt(end_Ncasa);
-        
-        EmprestimoMODEL objemprestimoM = new EmprestimoMODEL();
-        objemprestimoM.setNome_cliente(nome_cliente);
-        objemprestimoM.setCpf(cpfConvert);
-        objemprestimoM.setTelefone(telConvert);
-        objemprestimoM.setEnd_rua(end_rua);
-        objemprestimoM.setEnd_Ncasa(NcasaConvert);
-        objemprestimoM.setEnd_bairro(end_bairro);
-        objemprestimoM.setNome_livro(nome_livro);
-        objemprestimoM.setData_emprestimo(data_emprestimo);
-        objemprestimoM.setData_devolucao(data_devolucao);
-        
-        LivrosMODEL objlivrosM = new LivrosMODEL();
-        objlivrosM.setStatus_livro(status_livro);
-        
-        EmprestimoDAO objemprestimoD = new EmprestimoDAO();
-        objemprestimoD.cadastrarEmprestimo(objemprestimoM, objlivrosM);
-        
+         Cadastrar();
+         limparCampos();
     }//GEN-LAST:event_btnConfirmarActionPerformed
+
+    private void txtNomeLivroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeLivroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNomeLivroActionPerformed
 
     /**
      * @param args the command line arguments
@@ -528,6 +506,7 @@ public class EmprestimoVIEW extends javax.swing.JFrame implements ActionListener
     private javax.swing.JButton btnLIVRO;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
@@ -547,10 +526,12 @@ public class EmprestimoVIEW extends javax.swing.JFrame implements ActionListener
     private javax.swing.JSeparator jSeparator14;
     private javax.swing.JSeparator jSeparator15;
     private javax.swing.JSeparator jSeparator16;
+    private javax.swing.JSeparator jSeparator17;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator9;
     private javax.swing.JTextField txtBairro;
+    private javax.swing.JTextField txtCodLivro;
     private javax.swing.JTextField txtCpf;
     private javax.swing.JTextField txtDataAluguel;
     private javax.swing.JTextField txtDataDevolucao;
@@ -566,5 +547,59 @@ public class EmprestimoVIEW extends javax.swing.JFrame implements ActionListener
     public void actionPerformed(ActionEvent e) {
        this.setVisible(false);
        new HomeVIEW();
+    }
+    
+    public void Cadastrar(){
+          String nome_cliente, cpf, telefone, end_rua, end_Ncasa, end_bairro,
+                nome_livro, valor_livro, data_emprestimo, data_devolucao, status_livro="Emprestado", cod_livro;
+        nome_cliente = txtCodLivro.getText();
+        cpf = txtCpf.getText();
+        telefone = txtTel.getText();
+        end_rua = txtRua.getText();
+        end_Ncasa = txtNum.getText();
+        end_bairro = txtBairro.getText();
+        nome_livro = txtNomeLivro.getText();
+        valor_livro = txtValor.getText();
+        cod_livro = txtCodLivro.getText();
+        data_emprestimo = txtDataAluguel.getText();
+        data_devolucao = txtDataDevolucao.getText();
+        
+        int valorConvert = Integer.parseInt(valor_livro);
+        int cpfConvert = Integer.parseInt(cpf);
+        int telConvert = Integer.parseInt(telefone);
+        int NcasaConvert = Integer.parseInt(end_Ncasa);
+        int codConvert = Integer.parseInt(cod_livro);
+        
+        EmprestimoMODEL objemprestimoM = new EmprestimoMODEL();
+        objemprestimoM.setNome_cliente(nome_cliente);
+        objemprestimoM.setCpf(cpfConvert);
+        objemprestimoM.setTelefone(telConvert);
+        objemprestimoM.setEnd_rua(end_rua);
+        objemprestimoM.setEnd_Ncasa(NcasaConvert);
+        objemprestimoM.setEnd_bairro(end_bairro);
+        objemprestimoM.setNome_livro(nome_livro);
+        objemprestimoM.setData_emprestimo(data_emprestimo);
+        objemprestimoM.setData_devolucao(data_devolucao);
+        objemprestimoM.setCod_livro(codConvert);
+        
+        LivrosMODEL objlivrosM = new LivrosMODEL();
+        objlivrosM.setStatus_livro(status_livro);
+        
+        EmprestimoDAO objemprestimoD = new EmprestimoDAO();
+        objemprestimoD.cadastrarEmprestimo(objemprestimoM, objlivrosM);
+    }
+    
+    public void limparCampos(){
+        txtNomeCliente.setText("");
+        txtCodLivro.setText("");
+        txtNomeLivro.setText("");
+        txtCpf.setText("");
+        txtTel.setText("");
+        txtRua.setText("");
+        txtNum.setText("");
+        txtBairro.setText("");
+        txtDataAluguel.setText("");
+        txtDataDevolucao.setText("");
+        txtValor.setText("");
     }
 }

@@ -12,7 +12,15 @@ package MODEL;
 public class EmprestimoMODEL {
     
     String nome_cliente, end_rua, end_bairro, nome_livro, data_emprestimo, data_devolucao;
-    int cpf, telefone, end_Ncasa, valor_livro;
+    int cpf, telefone, end_Ncasa, valor_livro, cod_livro;
+
+    public int getCod_livro() {
+        return cod_livro;
+    }
+
+    public void setCod_livro(int cod_livro) {
+        this.cod_livro = cod_livro;
+    }
 
     public String getNome_cliente() {
         return nome_cliente;

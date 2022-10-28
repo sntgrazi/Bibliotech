@@ -11,14 +11,14 @@ package MODEL;
  */
 public class DevolucaoMODEL {
     
-    int cod_livro;
+    String nome_livro;
 
-    public int getCod_livro() {
-        return cod_livro;
+    public String getNome_livro() {
+        return nome_livro;
     }
 
-    public void setCod_livro(int cod_livro) {
-        this.cod_livro = cod_livro;
+    public void setNome_livro(String nome_livro) {
+        this.nome_livro = nome_livro;
     }
     
     
